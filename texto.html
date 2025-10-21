@@ -38,6 +38,7 @@
         height: 100%;
         z-index: 0;
         pointer-events: none;
+        overflow: hidden;
     }
 
     .heart {
@@ -62,8 +63,8 @@
 
     .foto-vertical {
         display: block;
-        margin: 30px auto 25px auto; /* Margem inferior ajustada para 25px */
-        height: 50vh; /* Aumentada a altura da imagem */
+        margin: 30px auto 25px auto;
+        height: 65vh; /* AUMENTADA */
         width: auto;
         max-width: 90%;
         border-radius: 12px;
@@ -88,7 +89,7 @@
         }
 
         .foto-vertical {
-            height: 45vh; /* Também aumentada no modo responsivo */
+            height: 55vh; /* também maior em mobile */
         }
     }
 
@@ -108,7 +109,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para a Malu</title>
-    <link rel="stylesheet" href="CSS/texto.css">
 </head>
 <body>
 
@@ -116,11 +116,16 @@
     <img src="img/1000039512.jpeg" alt="" class="foto-vertical">
 
     <div class="texto">
-        <h1>Maria Luiza de Oliveira, você é tudo aquilo que eu procurei por anos. Você é o amor da minha vida, a minha luz, e eu tenho muito orgulho de você, tenho muita sorte de ter te conhecido, você faz todos os meus dias ficarem cheios de cor só com o seu ‘bom dia’. Você é o motivo pelo qual eu tenho forças para levantar da cama e seguir o meu dia, sempre buscando ser melhor por você, por mim, por nós e pelo nosso futuro juntos.</h1>
+        <h1>Maria Luiza de Oliveira, você é tudo aquilo que eu procurei por anos. Você é o amor da minha vida, a minha luz, e eu tenho muito orgulho de você, tenho muita sorte de ter te conhecido, você faz todos os meus dias ficarem cheios de cor só com o seu ‘bom dia’. Você é o motivo pelo qual eu tenho forças para levantar da cama e seguir o meu dia, sempre buscando ser melhor por você, por mim, por nós e pelo nosso futuro juntos.
+            Eu te amo muito Malu
+        </h1>
     </div>
+
+    <div class="hearts-container" id="hearts-container"></div>
 
     <script>
         const numHearts = 100;
+        const container = document.getElementById("hearts-container");
 
         for (let i = 0; i < numHearts; i++) {
             const heart = document.createElement("div");
@@ -130,11 +135,11 @@
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.fontSize = Math.random() * 20 + 10 + "px";
             heart.style.animationDuration = 2 + Math.random() * 3 + "s";
-            heart.style.animationDelay = Math.random() * 5 + "s";
+            // REMOVIDO animationDelay para caírem direto
 
-            document.body.appendChild(heart);
+            container.appendChild(heart);
         }
     </script>
-    <div class="hearts-container"></div>
+
 </body>
 </html>
