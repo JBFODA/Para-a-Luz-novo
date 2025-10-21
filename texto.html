@@ -43,7 +43,6 @@
 
     .heart {
         position: absolute;
-        top: -10px;
         font-size: 24px;
         color: red;
         animation: fall linear infinite;
@@ -52,7 +51,7 @@
 
     @keyframes fall {
         0% {
-            transform: translateY(-10px) rotate(0deg);
+            transform: translateY(0) rotate(0deg);
             opacity: 1;
         }
         100% {
@@ -64,7 +63,7 @@
     .foto-vertical {
         display: block;
         margin: 30px auto 25px auto;
-        height: 65vh; /* AUMENTADA */
+        height: 75vh; /* Aumentada ainda mais */
         width: auto;
         max-width: 90%;
         border-radius: 12px;
@@ -89,7 +88,7 @@
         }
 
         .foto-vertical {
-            height: 55vh; /* também maior em mobile */
+            height: 65vh; /* também maior no celular */
         }
     }
 
@@ -116,9 +115,7 @@
     <img src="img/1000039512.jpeg" alt="" class="foto-vertical">
 
     <div class="texto">
-        <h1>Maria Luiza de Oliveira, você é tudo aquilo que eu procurei por anos. Você é o amor da minha vida, a minha luz, e eu tenho muito orgulho de você, tenho muita sorte de ter te conhecido, você faz todos os meus dias ficarem cheios de cor só com o seu ‘bom dia’. Você é o motivo pelo qual eu tenho forças para levantar da cama e seguir o meu dia, sempre buscando ser melhor por você, por mim, por nós e pelo nosso futuro juntos.
-            Eu te amo muito Malu
-        </h1>
+        <h1>Maria Luiza de Oliveira, você é tudo aquilo que eu procurei por anos. Você é o amor da minha vida, a minha luz, e eu tenho muito orgulho de você, tenho muita sorte de ter te conhecido, você faz todos os meus dias ficarem cheios de cor só com o seu ‘bom dia’. Você é o motivo pelo qual eu tenho forças para levantar da cama e seguir o meu dia, sempre buscando ser melhor por você, por mim, por nós e pelo nosso futuro juntos.</h1>
     </div>
 
     <div class="hearts-container" id="hearts-container"></div>
@@ -132,10 +129,18 @@
             heart.classList.add("heart");
             heart.innerText = "❤️";
 
+            // posição horizontal aleatória
             heart.style.left = Math.random() * 100 + "vw";
+
+            // tamanho aleatório
             heart.style.fontSize = Math.random() * 20 + 10 + "px";
+
+            // duração da animação aleatória
             heart.style.animationDuration = 2 + Math.random() * 3 + "s";
-            // REMOVIDO animationDelay para caírem direto
+
+            // posição vertical aleatória acima da tela
+            const topStart = -Math.random() * 100 - 20; // entre -20px e -120px
+            heart.style.top = `${topStart}px`;
 
             container.appendChild(heart);
         }
