@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <style>
+    body {
+        margin: 0;
+        background: linear-gradient(to bottom, #000000, #2c0000, #490000, #790000);
+        overflow: hidden;
+        height: 100vh;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        width: 100vw;
+        background-color: #2b2b2b;
+        color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        font-size: 1.125rem;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        line-height: 1.6;
+        z-index: 1;
+        word-wrap: break-word;
+        box-sizing: border-box;
+    }
+
+    .hearts-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .heart {
+        position: absolute;
+        top: -10px;
+        font-size: 24px;
+        color: red;
+        animation: fall linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-10px) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .foto-vertical {
+        display: block;
+        margin: 30px auto 10px auto;
+        height: 40vh; /* imagem grande e vertical */
+        width: auto;
+        max-width: 90%;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        z-index: 2;
+        position: relative;
+    }
+
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 1rem;
+            padding: 15px;
+            width: 90vw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .texto {
+            font-size: 0.875rem;
+            width: 100vw;
+            padding: 15px;
+        }
+
+        .foto-vertical {
+            height: 35vh; /* imagem maior no celular */
+        }
+    }
+
+    @media (max-width: 800px) and (orientation: landscape) {
+        h1 {
+            font-size: 0.9rem;
+            padding: 10px;
+            bottom: 10px;
+        }
+
+        .texto {
+            font-size: 0.8rem;
+            padding: 10px;
+        }
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a Malu</title>
+    <link rel="stylesheet" href="CSS/texto.css">
+</head>
+<body>
+
+    <!-- Imagem centralizada e em formato vertical -->
+    <img src="img/1000039512.jpeg" alt="" class="foto-vertical">
+
+    <div class="texto">
+        <h1>Maria Luiza de Oliveira, você é tudo aquilo que eu procurei por anos. Você é o amor da minha vida, a minha luz, e eu tenho muito orgulho de você, tenho muita sorte de ter te conhecido, você faz todos os meus dias ficarem cheios de cor só com o seu ‘bom dia’. Você é o motivo pelo qual eu tenho forças para levantar da cama e seguir o meu dia, sempre buscando ser melhor por você, por mim, por nós e pelo nosso futuro juntos.</h1>
+    </div>
+
+    <script>
+        const numHearts = 100;
+
+        for (let i = 0; i < numHearts; i++) {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerText = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 10 + "px";
+            heart.style.animationDuration = 2 + Math.random() * 3 + "s";
+            heart.style.animationDelay = Math.random() * 5 + "s";
+
+            document.body.appendChild(heart);
+        }
+    </script>
+    <div class="hearts-container"></div>
+</body>
+</html>

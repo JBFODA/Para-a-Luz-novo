@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <style>
+        body{
+    background-color: #161a1d;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a Malu</title>
+    <link rel="stylesheet" href="CSS/design.css">
+</head>
+<body>
+    <div class="wrapper"> <!-- NOVO -->
+    <div class="content-coracao">
+      <a href="texto.html" class="coracao-link">
+        <div class="square"></div>
+        <div class="circle"></div>
+      </a>
+    </div>
+    <script>
+    const wrapper = document.querySelector('.wrapper');
+    const link = document.querySelector('.coracao-link');
+
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Anima a wrapper, não o coração em si
+      wrapper.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+      wrapper.style.transform = 'scale(0.5)';
+      wrapper.style.opacity = '0';
+
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 300);
+    });
+  </script>
+</body>
+</html>
